@@ -1,5 +1,8 @@
 import React from 'react';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
+import * as yup from 'yup';
+import { useFormik } from "formik";
+import ErrorIcon from '@mui/icons-material/Error';
 import MotionDiv from '../../components/MotionDiv';
 import {
   FONT_IBM_PLEX,
@@ -10,7 +13,25 @@ import {
 } from '../../utils/constants';
 import { DTextField, PrimaryButton } from '../../components/styledComponents';
 
+const validSchema = yup.object().shape({
+  email: yup.string().email('Invaild email.').required('Email is required.'),
+});
+
 export default function Home() {
+  const handleSubmit = (values) => {
+    console.log(values);
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    validationSchema: validSchema,
+    onSubmit: (values) => {
+      return handleSubmit(values);
+    }
+  });
+
   return (
     <Container maxWidth="xl" sx={{ pb: 3 }}>
       <Grid container flexDirection={{ xs: 'column-reverse', md: 'row' }} spacing={{ xs: 0, sm: 14, md: 0 }}>
@@ -57,6 +78,21 @@ export default function Home() {
                   type="email"
                   name="email"
                   placeholder="Enter Email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  error={formik.touched.email && Boolean(formik.errors.email)}
+                  helperText={
+                    formik.touched.email && formik.errors.email ? (
+                      <Typography
+                        component="span"
+                        fontSize={14}
+                        fontWeight={700}
+                        sx={{ display: 'flex', alignItems: 'center', mx: 0 }}
+                      >
+                        <ErrorIcon />&nbsp;
+                        {formik.touched.email && formik.errors.email}
+                      </Typography>) : (<></>)
+                  }
                   fullWidth
                 />
               </MotionDiv>
@@ -71,6 +107,7 @@ export default function Home() {
                     fontSize: 16,
                     py: 1
                   }}
+                  onClick={formik.handleSubmit}
                 >Join Waiting List</PrimaryButton>
               </MotionDiv>
             </Grid>

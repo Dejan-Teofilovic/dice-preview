@@ -20,18 +20,16 @@ export const TextButton = styled(Button)`
 `;
 
 export const DTextField = styled(TextField)({
-  backgroundColor: grey[400],
   color: grey[700],
   fontSize: 12,
   '& label.Mui-focused': {
     color: 'black',
-    // fontFamily: FONT_AMARANTH,
   },
   '& .MuiInput-underline:after': {
     borderBottomColor: 'black',
   },
   '& .MuiOutlinedInput-root': {
-    // fontFamily: FONT_AMARANTH,
+    backgroundColor: grey[400],
     borderRadius: 0,
     '& fieldset': {
     },
@@ -47,5 +45,8 @@ export const DTextField = styled(TextField)({
   },
   '& .MuiOutlinedInput-input::placeholder': {
     fontWeight: 900
+  },
+  '& .MuiFormHelperText-root': {
+    margin: '10px 0px'
   }
 });
