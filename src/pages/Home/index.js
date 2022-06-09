@@ -3,18 +3,19 @@ import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import MotionDiv from '../../components/MotionDiv';
 import {
   FONT_IBM_PLEX,
-  FONT_IBM_PLEX_SERIF,
+  varFadeInDown,
   varFadeInLeft,
   varFadeInRight,
   varFadeInUp
 } from '../../utils/constants';
+import { DTextField, PrimaryButton } from '../../components/styledComponents';
 
 export default function Home() {
   return (
     <Container maxWidth="xl" sx={{ pb: 3 }}>
       <Grid container flexDirection={{ xs: 'column-reverse', md: 'row' }} spacing={{ xs: 0, sm: 14, md: 0 }}>
         <Grid item xs={12} md={6}>
-          <MotionDiv variants={varFadeInLeft}>
+          <MotionDiv variants={varFadeInUp}>
             <Typography
               mt={{ xs: 5, sm: 5, md: 5, lg: 15 }}
               fontSize={{ xs: 28, md: 48 }}
@@ -31,30 +32,58 @@ export default function Home() {
                 fontWeight="inherit"
                 fontStyle="italic"
                 color="#A1275D"
-              >What if</Typography>&nbsp;you can touch your PFP NFT?
+              >What if</Typography>&nbsp;you can touch your Avatar NFT?
             </Typography>
           </MotionDiv>
 
-          <MotionDiv variants={varFadeInRight}>
+          <MotionDiv variants={varFadeInDown}>
             <Typography
-              mt={2}
-              fontFamily={FONT_IBM_PLEX_SERIF}
-              fontSize={{ xs: 16, md: 18 }}
-              textAlign={{ xs: 'center', md: 'left' }}
-              color="#9DB7BD"
+              mt={5}
+              fontSize={{ xs: 22, md: 36 }}
+              fontFamily="sfProRounded"
+              fontWeight={900}
+              textAlign="center"
+              color="white"
+              letterSpacing={3}
             >
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              Be the first to know
             </Typography>
           </MotionDiv>
+
+          <Grid container spacing={{ xs: 1, md: 3 }} sx={{ pt: 2 }}>
+            <Grid item xs={12} sm={9} md={9}>
+              <MotionDiv variants={varFadeInLeft}>
+                <DTextField
+                  type="email"
+                  name="email"
+                  placeholder="Enter Email"
+                  fullWidth
+                />
+              </MotionDiv>
+            </Grid>
+            <Grid item xs={12} sm={3} md={3}>
+              <MotionDiv variants={varFadeInRight}>
+                <PrimaryButton
+                  variant="contained"
+                  fullWidth
+                  sx={{
+                    borderRadius: 0,
+                    fontSize: 16,
+                    py: 1
+                  }}
+                >Join Waiting List</PrimaryButton>
+              </MotionDiv>
+            </Grid>
+          </Grid>
         </Grid>
 
         <Grid item xs={12} md={6}>
           <MotionDiv variants={varFadeInUp}>
             <Stack mt={5} alignItems="center">
-              <Box 
-                component="img" 
-                src="/assets/images/hero.png" 
-                width={{ xs: '70%', sm: '50%', md: '70%' }} 
+              <Box
+                component="img"
+                src="/assets/images/hero.png"
+                width={{ xs: '70%', sm: '50%', md: '70%' }}
               />
             </Stack>
           </MotionDiv>
