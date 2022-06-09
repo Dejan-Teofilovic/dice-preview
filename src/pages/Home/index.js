@@ -5,21 +5,63 @@ import { useFormik } from "formik";
 import ErrorIcon from '@mui/icons-material/Error';
 import MotionDiv from '../../components/MotionDiv';
 import {
+  ERROR,
   FONT_IBM_PLEX,
+  INFO,
+  SUCCESS,
   varFadeInDown,
   varFadeInLeft,
   varFadeInRight,
-  varFadeInUp
+  varFadeInUp,
+  WARNING
 } from '../../utils/constants';
 import { DTextField, PrimaryButton } from '../../components/styledComponents';
+import useWallet from '../../hooks/useWallet';
+import useAlertMessage from '../../hooks/useAlertMessage';
+import useLoading from '../../hooks/useLoading';
+import api from '../../utils/api';
 
 const validSchema = yup.object().shape({
   email: yup.string().email('Invaild email.').required('Email is required.'),
 });
 
 export default function Home() {
-  const handleSubmit = (values) => {
-    console.log(values);
+  const { walletConnected, currentAccount } = useWallet();
+  const { openAlert } = useAlertMessage();
+  const { openLoading, closeLoading } = useLoading();
+
+  const handleSubmit = async (values) => {
+    if (walletConnected) {
+      openLoading();
+      api.post('/preview/saveUserdata', { ...values, walletAddress: currentAccount })
+        .then(response => {
+          openAlert({
+            severity: SUCCESS,
+            message: "You've been joined in our waiting list. Thank you."
+          });
+          closeLoading();
+        })
+        .catch(error => {
+          console.log('# error.response => ', error.response);
+          if (error.response.status === 400) {
+            openAlert({
+              severity: INFO,
+              message: "You were already joined."
+            });
+          } else {
+            openAlert({
+              severity: ERROR,
+              message: "Server error. Try again in a few minutes, please."
+            });
+          }
+          closeLoading();
+        });
+    } else {
+      openAlert({
+        severity: WARNING,
+        message: "Connect your wallet, please."
+      });
+    }
   };
 
   const formik = useFormik({
