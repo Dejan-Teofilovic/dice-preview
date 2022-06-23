@@ -99,61 +99,67 @@ export default function Home() {
             </Typography>
           </MotionDiv>
 
-          <MotionDiv variants={varFadeInDown}>
-            <Typography
-              mt={5}
-              fontSize={{ xs: 22, md: 36 }}
-              fontFamily="sfProRounded"
-              fontWeight={900}
-              textAlign="center"
-              color="white"
-              letterSpacing={3}
-            >
-              Be the first to know
-            </Typography>
-          </MotionDiv>
+          <Box mr={{ xs: 0, sm: 3, md: 6 }}>
+            <MotionDiv variants={varFadeInDown}>
+              <Typography
+                mt={8}
+                fontSize={{ xs: 22, md: 36 }}
+                fontFamily="sfProRounded"
+                fontWeight={900}
+                textAlign="center"
+                color="white"
+                letterSpacing={3}
+              >
+                Be the first to know
+              </Typography>
+            </MotionDiv>
 
-          <Grid container spacing={{ xs: 1, md: 3 }} sx={{ pt: 2 }}>
-            <Grid item xs={12} sm={9} md={9}>
-              <MotionDiv variants={varFadeInLeft}>
-                <DTextField
-                  type="email"
-                  name="email"
-                  placeholder="Enter Email"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  error={formik.touched.email && Boolean(formik.errors.email)}
-                  helperText={
-                    formik.touched.email && formik.errors.email ? (
-                      <Typography
-                        component="span"
-                        fontSize={14}
-                        fontWeight={700}
-                        sx={{ display: 'flex', alignItems: 'center', mx: 0 }}
-                      >
-                        <ErrorIcon />&nbsp;
-                        {formik.touched.email && formik.errors.email}
-                      </Typography>) : (<></>)
-                  }
-                  fullWidth
-                />
-              </MotionDiv>
-            </Grid>
-            <Grid item xs={12} sm={3} md={3}>
-              <MotionDiv variants={varFadeInRight}>
-                <PrimaryButton
-                  variant="contained"
-                  fullWidth
-                  sx={{
-                    borderRadius: 0,
-                    fontSize: 16,
-                    py: 1
-                  }}
-                  onClick={formik.handleSubmit}
-                >Join Waiting List</PrimaryButton>
-              </MotionDiv>
-            </Grid>
-          </Grid>
+            <Stack direction="row" justifyContent="center" width="100%">
+              <Box pt={2} width="90%">
+                <Grid container spacing={{ xs: 1, md: 3 }} alignItems="center">
+                  <Grid item xs={12} sm={7} md={7}>
+                    <MotionDiv variants={varFadeInLeft}>
+                      <DTextField
+                        type="email"
+                        name="email"
+                        placeholder="Enter Email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        error={formik.touched.email && Boolean(formik.errors.email)}
+                        helperText={
+                          formik.touched.email && formik.errors.email && (
+                            <Typography
+                              component="span"
+                              fontSize={14}
+                              fontWeight={700}
+                              sx={{ display: 'flex', alignItems: 'center', mx: 0 }}
+                            >
+                              <ErrorIcon />&nbsp;
+                              {formik.touched.email && formik.errors.email}
+                            </Typography>)
+                        }
+                        fullWidth
+                      />
+                    </MotionDiv>
+                  </Grid>
+                  <Grid item xs={12} sm={5} md={5}>
+                    <MotionDiv variants={varFadeInRight}>
+                      <PrimaryButton
+                        variant="contained"
+                        fullWidth
+                        sx={{
+                          borderRadius: 0,
+                          fontSize: { xs: 14, sm: 16, md: 18 },
+                          textTransform: 'uppercase'
+                        }}
+                        onClick={formik.handleSubmit}
+                      >Join Waiting List</PrimaryButton>
+                    </MotionDiv>
+                  </Grid>
+                </Grid>
+              </Box>
+            </Stack>
+          </Box>
         </Grid>
 
         <Grid item xs={12} md={6}>

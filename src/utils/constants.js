@@ -135,3 +135,5 @@ export const COLOR_BRIGHT = 'white';
 export const COLOR_INFO = '#005d76';
 export const COLOR_PRIMARY = '#A1275D';
 export const COLOR_SECONDARY = '#9DB7BD';
+
+export const URL_TWITTER = 'https://twitter.com/dice__NFT';
