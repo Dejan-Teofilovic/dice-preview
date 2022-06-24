@@ -103,7 +103,7 @@ export default function Home() {
             <MotionDiv variants={varFadeInDown}>
               <Typography
                 mt={8}
-                fontSize={{ xs: 22, md: 36 }}
+                fontSize={{ xs: 20, md: 32 }}
                 fontFamily="sfProRounded"
                 fontWeight={900}
                 textAlign="center"
@@ -115,7 +115,7 @@ export default function Home() {
             </MotionDiv>
 
             <Stack direction="row" justifyContent="center" width="100%">
-              <Box pt={2} width="90%">
+              <Box pt={2} width="80%">
                 <Grid container spacing={{ xs: 1, md: 3 }} alignItems="center">
                   <Grid item xs={12} sm={7} md={7}>
                     <MotionDiv variants={varFadeInLeft}>
