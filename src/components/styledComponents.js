@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, Toolbar } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import { COLOR_INFO, COLOR_PRIMARY } from '../utils/constants';
@@ -21,7 +21,7 @@ export const TextButton = styled(Button)`
 
 export const DTextField = styled(TextField)({
   color: grey[700],
-  fontSize: 12,
+  fontSize: 5,
   '& label.Mui-focused': {
     color: 'black',
   },
@@ -41,6 +41,7 @@ export const DTextField = styled(TextField)({
     },
   },
   '& .MuiOutlinedInput-input': {
+    fontSize: 14,
     padding: 10
   },
   '& .MuiOutlinedInput-input::placeholder': {
@@ -48,5 +49,12 @@ export const DTextField = styled(TextField)({
   },
   '& .MuiFormHelperText-root': {
     margin: '10px 0px'
+  }
+});
+
+export const DToolbar = styled(Toolbar)({
+  '&.MuiToolbar-root': {
+    paddingLeft: 0,
+    paddingRight: 0
   }
 });

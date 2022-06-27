@@ -8,7 +8,7 @@ import {
   Toolbar,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { PrimaryButton, TextButton } from './styledComponents';
+import { DToolbar, PrimaryButton, TextButton } from './styledComponents';
 import { ROUTES } from '../utils/constants';
 import useWallet from '../hooks/useWallet';
 
@@ -25,7 +25,7 @@ export default function TopNavbar() {
   return (
     <AppBar position="static" sx={{ backgroundColor: 'rgba(0, 0, 0, 0)', py: 3, boxShadow: 'none' }}>
       <Container maxWidth="xl">
-        <Toolbar>
+        <DToolbar>
           <Button component={RouterLink} to="/">
             <Box component="img" src="/assets/images/logo.png" width={100} />
           </Button>
@@ -61,7 +61,7 @@ export default function TopNavbar() {
               >Connect</PrimaryButton>
             )
           }
-        </Toolbar>
+        </DToolbar>
       </Container>
     </AppBar>
   );

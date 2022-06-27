@@ -81,7 +81,7 @@ export default function Home() {
           <MotionDiv variants={varFadeInUp}>
             <Typography
               mt={{ xs: 5, sm: 5, md: 5, lg: 15 }}
-              fontSize={{ xs: 28, md: 48 }}
+              fontSize={{ xs: 22, md: 32 }}
               fontFamily="sfProRounded"
               fontWeight={900}
               textAlign={{ xs: 'center', md: 'left' }}
@@ -90,7 +90,7 @@ export default function Home() {
             >
               <Typography
                 component="span"
-                fontSize={{ xs: 32, md: 54 }}
+                fontSize={{ xs: 28, md: 46 }}
                 fontFamily={FONT_IBM_PLEX}
                 fontWeight="inherit"
                 fontStyle="italic"
@@ -103,7 +103,7 @@ export default function Home() {
             <MotionDiv variants={varFadeInDown}>
               <Typography
                 mt={8}
-                fontSize={{ xs: 20, md: 32 }}
+                fontSize={{ xs: 18, md: 24 }}
                 fontFamily="sfProRounded"
                 fontWeight={900}
                 textAlign="center"
@@ -115,7 +115,7 @@ export default function Home() {
             </MotionDiv>
 
             <Stack direction="row" justifyContent="center" width="100%">
-              <Box pt={2} width="80%">
+              <Box pt={2} width={{ md: '90%', xl: "80%" }}>
                 <Grid container spacing={{ xs: 1, md: 3 }} alignItems="center">
                   <Grid item xs={12} sm={7} md={7}>
                     <MotionDiv variants={varFadeInLeft}>
@@ -149,7 +149,7 @@ export default function Home() {
                         fullWidth
                         sx={{
                           borderRadius: 0,
-                          fontSize: { xs: 14, sm: 16, md: 18 },
+                          fontSize: { xs: 12, sm: 14, md: 16 },
                           textTransform: 'uppercase'
                         }}
                         onClick={formik.handleSubmit}
@@ -168,7 +168,7 @@ export default function Home() {
               <Box
                 component="img"
                 src="/assets/images/hero.png"
-                width={{ xs: '70%', sm: '50%', md: '70%' }}
+                width={{ xs: '70%', sm: '50%', md: '50%' }}
               />
             </Stack>
           </MotionDiv>

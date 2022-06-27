@@ -33,7 +33,7 @@ export default function MainLayout() {
             href={URL_TWITTER}
             target="_blank"
           >
-            <Twitter sx={{ fontSize: { xs: 32, md: 48 } }} />
+            <Twitter sx={{ fontSize: { xs: 24, md: 36 } }} />
           </IconButton>
         </Container>
       </Stack>
