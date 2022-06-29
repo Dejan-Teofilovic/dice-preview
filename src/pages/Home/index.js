@@ -75,7 +75,7 @@ export default function Home() {
   });
 
   return (
-    <Container maxWidth="xl" sx={{ pb: 3 }}>
+    <Container maxWidth="xl" sx={{ pb: 3, pt: 10 }}>
       <Grid container flexDirection={{ xs: 'column-reverse', md: 'row' }} spacing={{ xs: 0, sm: 14, md: 0 }}>
         <Grid item xs={12} md={6}>
           <MotionDiv variants={varFadeInUp}>

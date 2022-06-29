@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Container,
-  Toolbar,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { DToolbar, PrimaryButton, TextButton } from './styledComponents';
